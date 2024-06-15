@@ -1,0 +1,270 @@
+/* CSS  By Daniel Lizarte Cáceres */
+
+/* General Structure */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Body Learning */
+body#initChat {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("imgs/wallpaper.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden; 
+    
+}
+
+div#container_window_info{
+    display: block;
+    width: 47em; 
+    height: 47em; 
+    background-image: url("imgs/window_info.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+}
+
+#container_bar_chat {
+    display: flex;
+    align-items: center;
+    margin-top:15%
+}
+
+#title_chat {
+    flex: 1;
+    font-size: 25px;
+    font-style: italic;
+    color: white;
+    margin-left: 5%;
+}
+
+#input_chat{
+
+    
+    width: 520px;
+    height: 40px;
+    margin-left: 0%;
+  
+}
+
+#chat_container {
+    
+    width: 730px;
+    height: 400px;
+    margin-left: 1.5%;
+    overflow-y: auto; 
+     
+}
+
+#button_send{
+    background-color:rgb(5, 5, 118);
+    color:white;
+    margin-top:-10%;
+    width: 110px;
+    height: 45px;
+    cursor: pointer;
+
+}
+
+#button_users{
+
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+    text-align: left;
+    font-style: italic;
+    color: black;
+    cursor: pointer;
+    margin-right:4.5%;
+    margin-top:-0.8%;
+
+}
+
+#button_room {
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+    font-style: italic;
+    text-align: left;
+    color: black;
+    margin-right:1.5%;
+    margin-top:-0.8%;
+}
+
+
+
+.msg{
+    padding: 10px;
+    background-color: rgb(166, 166, 166);
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-right:200px;
+    display: flex;
+    
+    flex-direction: column;  /* Cambio aquí: Mostrar en columna */
+}
+
+.msg .username {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-weight: bold;  
+}
+
+.msg.mine{
+    margin-left: 200px;
+    background-color: rgb(100, 230, 100);
+    margin-right:0px;
+}
+
+.initial_message{
+    display:none;
+}
+
+
+#rooms {
+    display: block;
+    position: absolute;  
+    background-color: rgb(35, 7, 145);
+    right: 10px;   /*26 with scroll*/
+    top: 50;  
+    width: 210px;
+    height: 53%; 
+    z-index:1; 
+    
+}
+
+#users {
+    display: none;
+    position: absolute;  
+    background-color: rgb(35, 7, 145);
+    right: 10px;   /*26 with scroll*/
+    top: 50;  
+    width: 210px;
+    height: 53%;  
+    z-index:1; 
+    
+}
+
+#title_rooms{
+    color:white;
+    text-align: center;
+}
+
+#select_rooms{
+
+    width: 95%; 
+    height: 30px; 
+    font-size: 20px;
+    margin-left:2%;
+    
+}
+
+#input_room{
+    width: 92%; 
+    height: 20px; 
+    font-size: 15px;
+    margin-left:2%;
+    margin-top:2%;
+}
+
+#input_username{
+
+    
+    width: 90%; 
+    height: 25px; 
+    font-size: 20px;
+    margin-left:3%;
+}
+
+#button_selectroom{
+
+    width: 190px;
+    height: 30px;
+    font-size: 20px;
+    font-style: italic;
+    color: black;
+    cursor: pointer;
+    margin-left:5%;
+    margin-top:2%;
+
+
+}
+
+
+.user{
+    color:white;
+    margin-left:5%;
+}
+
+#number_users{
+    display: none;
+}
+
+#number_room{
+    display: none;
+}
+
+#button_emoji{
+    background-color:rgb(5, 5, 118);
+    position:relative;
+    display:inline;
+    color:white;
+    margin-top:-10%;
+    width: 80px;
+    height: 40px;
+    margin-bottom: 20%;
+    cursor: pointer;
+    margin-left:2%;
+
+}
+
+#choose_emoji{
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    margin-top:8%;
+    z-index: 1;
+}
+
+#avatar-row1 img, #avatar-row2 img {
+    width: 30px;  /* Ajusta el ancho como quieras */
+    height: auto; /* Esto mantendrá la relación de aspecto original de la imagen */
+    margin-left:12%;
+}
+
+.privateMsgCheckbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-top:10%;
+    margin-left: 5%;
+    cursor: pointer;
+    font-size: 50px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+

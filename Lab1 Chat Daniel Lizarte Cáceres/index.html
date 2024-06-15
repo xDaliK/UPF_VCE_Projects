@@ -1,0 +1,103 @@
+<!-- HTML By Daniel Lizarte Cáceres -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="" />
+
+    <title>Daniel Lizarte Chat</title>
+
+    <link rel="stylesheet" href="styleChat.css">
+
+</head>
+
+<body id="initChat">
+    <div id="container_window_info">
+        
+        <div id="container_bar_chat">
+            <h1 id="title_chat"><b>/Daniel's Chat</b></h1>
+            <button id="button_users"><b>Users: </b>
+                <span id="number_users" >0</span></button>
+            <button id="button_room"><b>Room: </b>
+                <span id="number_room" >0</span></button>
+        </div>
+
+        <div id="users">
+            <h2 id="title_rooms">Users Connected</h2>
+            <div id="usersContainer">
+
+                
+            </div>
+            
+        </div>
+        
+        <div id="rooms">
+            <h2 id="title_rooms">Select Room</h2>
+            <select id= "select_rooms">
+                <option value="1">Room 1</option>
+                <option value="2">Room 2</option>
+                <option value="3">Room 3</option>
+                
+            </select>
+            <input id="input_room" placeholder="or Enter your own room"></input>
+
+            <h2 id="title_rooms">Select Username</h2>
+            <input id="input_username" placeholder="Username"></input>
+            <h2 id="title_rooms">Select Avatar:</h2>
+                <div id="avatar-row1" style= "cursor: pointer;">
+                    <img src="imgs/avatar1.png" onclick="selectAvatar('imgs/avatar1.png')">
+                    <img src="imgs/avatar2.png" onclick="selectAvatar('imgs/avatar2.png')">
+                    <img src="imgs/avatar3.png" onclick="selectAvatar('imgs/avatar3.png')">
+                </div>
+                <div id="avatar-row2" style= "cursor: pointer;">
+                    <img src="imgs/avatar4.png" onclick="selectAvatar('imgs/avatar4.png')">
+                    <img src="imgs/avatar5.png" onclick="selectAvatar('imgs/avatar5.png')">
+                    <img src="imgs/avatar6.png" onclick="selectAvatar('imgs/avatar6.png')">
+                </div>
+
+            <button id="button_selectroom"><b>Enter Room</b></button>
+
+        </div>
+          
+
+        <div id="chat_container">
+            <div class="initial_message">
+                <div class="msg">
+                    <span class="username"></span>
+                    <span class="text"></span>
+                </div>
+            </div>   
+        </div>
+
+        
+        <div id="choose_emoji" style="display: none; cursor: pointer;">
+            <span onclick="insertEmoji('😂')">😂</span>
+            <span onclick="insertEmoji('😭')">😭</span>
+            <span onclick="insertEmoji('😍')">😍</span>
+            <span onclick="insertEmoji('😊')">😊</span>
+            <span onclick="insertEmoji('😒')">😒</span>
+            <span onclick="insertEmoji('😉')">😉</span>
+            <span onclick="insertEmoji('🙄')">🙄</span>
+            <span onclick="insertEmoji('😁')">😁</span>
+            <span onclick="insertEmoji('😃')">😃</span>
+            <span onclick="insertEmoji('😅')">😅</span>
+        </div>
+
+        <button id="button_emoji"><b>Emojis😀</b></button> 
+        <input id="input_chat" placeholder="Enter Message...">
+        <button id="button_send"><b>Send Message</b></button>
+
+    </div>
+        
+
+</body>
+
+<script src="sillyClient.js"></script>
+
+<script src="codeChat.js"></script>
+
+
+</html>

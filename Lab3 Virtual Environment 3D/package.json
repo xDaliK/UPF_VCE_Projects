@@ -1,0 +1,19 @@
+{
+  "name": "ecv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/peerjs": "^1.1.0",
+    "express": "^4.18.2",
+    "express-ws": "^5.0.2",
+    "mysql": "^2.18.1",
+    "node-mysql-wrapper": "^2.4.0",
+    "peerjs": "^1.5.2"
+  }
+}

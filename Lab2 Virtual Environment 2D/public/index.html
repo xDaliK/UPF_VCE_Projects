@@ -1,0 +1,103 @@
+<!-- HTML By Daniel Lizarte Cáceres -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="" />
+
+    <title>DaNau Virtual Space</title>
+    <link rel="icon" type="image/png" href="imgs/favicon.ico"/>
+
+    <link rel="stylesheet" href="styleChat.css">
+
+</head>
+
+<body id="initChat">
+        <div id="container_window_info">
+            
+            <div id="container_bar_chat">
+                <h1 id="title_chat"><b>/DaNau's Virtual Space</b></h1>
+                <button id="button_users"><b>Users: </b>
+                    <span id="number_users" >0</span></button>
+                    <!--<span id="number_room" >0</span></button>-->
+            </div>
+
+            <div id="users">
+                <h2 style="color:black; text-align: center;">Users Connected</h2>
+                <div id="usersContainer">
+
+                    
+                </div>
+                
+            </div>
+            
+            <div id="rooms">
+                
+                <h2 id="title_rooms">Select Username</h2>
+                <input id="input_username" name="username" placeholder="Username"></input>
+                <h2 id="title_rooms">Enter Password</h2>
+                <input type="password" id="input_password" name="password" placeholder="Password"></input>
+
+                <button id="button_selectroom"><b>Enter Room</b></button>
+                <button id="button_register"><b>Register</b></button>
+
+            </div>
+            
+
+            <div id="canvas_container"><canvas></canvas></div> 
+            
+
+            
+
+
+            
+            <div id="choose_avatar" style="display: none; cursor: pointer;">
+                <p id="title_rooms">Select Avatar:</p>
+                <div id="avatar-row1">
+                    <img src="imgs/boy_1_chat.png" onclick="selectAvatar('imgs/boy_1_chat.png', 'imgs/boy_1.png')">
+                    <img src="imgs/girl_1_chat.png" onclick="selectAvatar('imgs/girl_1_chat.png', 'imgs/girl_1.png')">
+                    <img src="imgs/boy_2_chat.png" onclick="selectAvatar('imgs/boy_2_chat.png', 'imgs/boy_2.png')">
+                    <img src="imgs/girl_2_chat.png" onclick="selectAvatar('imgs/girl_2_chat.png', 'imgs/girl_2.png')">
+                </div>
+            </div>
+
+            <button id="button_avatar"><b>Avatars</b></button>
+            <input id="input_chat" placeholder="Enter Message...">
+            <button id="button_send"><b>Send</b></button>
+            
+
+            <div id="chat_container">
+                <button id="button_room"><b>Virtual Space Chat</b>
+                <div class="initial_message">
+                    <div class="msg">
+                        <span class="username"></span>
+                        <span class="text"></span>
+                    </div>
+                </div>   
+            </div> 
+
+        
+        </div>
+
+        
+
+   
+    
+
+</body>
+
+<!--<script src="sillyClient.js"></script>-->
+
+
+<script src="data.js"></script>
+<script src="codeWorld.js"></script>
+<script src="codeChat.js"></script>
+
+
+<!--<script src="../myServer.js"></script>-->
+
+
+</html>

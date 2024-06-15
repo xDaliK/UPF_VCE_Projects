@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="shortcut icon" href="./imgs/favicon.ico">
+<link rel="stylesheet" href="styleSpace.css">
+
+<title>DaNau Virtual 3D</title>
+	<style type='text/css'>
+		html, body { width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; }
+
+		video { display: none; }
+	</style>
+
+
+<script type="text/javascript" src="./extra/gl-matrix-min.js"></script>
+<script type="text/javascript" src="./extra/litegl.js"></script>
+<script type="text/javascript" src="./extra/rendeer.js"></script>
+<script type="text/javascript" src="./extra/wbin.js"></script>
+<script type="text/javascript" src="./extra/walkArea.js"></script>
+
+<!-- <script type="text/javascript" src="../server/myServer.js"></script> -->
+</head>
+<!-- <body> -->
+<body id="initChat">
+
+	<div id="container_window_info">
+            
+		<div id="container_bar_chat">
+			<h1 id="title_chat"><b>/DaNau's Virtual Classroom</b></h1>
+			<!--<button id="button_users"><b>Users: </b>-->
+				<!--<span id="number_users" >0</span></button>-->
+				<!--<span id="number_room" >0</span></button>-->
+			<img id="selected-avatar" src="" style="position: absolute; margin-top:80%; visibility:hidden; "  >
+		</div>
+
+		<div id="users">
+			<h2 style="color:black; text-align: center;">Users Connected</h2>
+			<div id="usersContainer">
+				
+			</div>
+		</div>
+		
+		<div id="rooms">
+			
+			<h2 id="title_rooms">Select Username</h2>
+			<input id="input_username" name="username" placeholder="Username"></input>
+			<h2 id="title_rooms">Enter Password</h2>
+			<input type="password" id="input_password" name="password" placeholder="Password"></input>
+
+			<input style="margin-left:15%;" id="Teacher" type ="checkbox" onclick="CheckIsTeacher()"><b id="text_teacher">Are you a Teacher?</b></input>
+			<h2 id="title_rooms">Select Avatar:</h2>
+			<div id="avatar-row1">
+				<img src="./imgs/avatars/avatarChat_boy_1.png" onclick="selectAvatar('./imgs/avatars/avatarChat_boy_1.png', './students/charactersAssets/textures/boy1.png', './imgs/avatars/avatar_boy_1.png' )">
+				<img src="./imgs/avatars/avatarChat_boy_2.png" onclick="selectAvatar('./imgs/avatars/avatarChat_boy_2.png', './students/charactersAssets/textures/boy2.png', './imgs/avatars/avatar_boy_2.png')">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_boy_3.png" onclick="selectAvatar('./imgs/avatars/avatarChat_boy_3.png', './students/charactersAssets/textures/boy3.png', './imgs/avatars/avatar_boy_3.png')">
+			</div>
+			<div id="avatar-row2">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_girl_1.png" onclick="selectAvatar('./imgs/avatars/avatarChat_girl_1.png', './students/charactersAssets/textures/girl1.png' , './imgs/avatars/avatar_girl_1.png')">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_girl_2.png" onclick="selectAvatar('./imgs/avatars/avatarChat_girl_2.png', './students/charactersAssets/textures/girl2.png', './imgs/avatars/avatar_girl_2.png')">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_girl_3.png" onclick="selectAvatar('./imgs/avatars/avatarChat_girl_3.png', './students/charactersAssets/textures/girl3.png', './imgs/avatars/avatar_girl_3.png')">
+			</div>
+			<div id="avatar-row1-teachers">
+				<img src="./imgs/avatars/avatarChat_teacherboy_1.png" onclick="selectAvatar('./imgs/avatars/avatarChat_teacherboy_1.png', './students/charactersAssets/textures/teacher_boy1.png', './imgs/avatars/avatar_teacherboy_1.png')">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_teacherboy_2.png" onclick="selectAvatar('./imgs/avatars/avatarChat_teacherboy_2.png', './students/charactersAssets/textures/teacher_boy2.png', './imgs/avatars/avatar_teacherboy_2.png')">
+			</div>
+			<div id="avatar-row2-teachers">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_teachergirl_1.png" onclick="selectAvatar('./imgs/avatars/avatarChat_teachergirl_1.png', './students/charactersAssets/textures/teacher_girl1.png', './imgs/avatars/avatar_teachergirl_1.png')">
+				<img style="width:50px;" src="./imgs/avatars/avatarChat_teachergirl_2.png" onclick="selectAvatar('./imgs/avatars/avatarChat_teachergirl_2.png', './students/charactersAssets/textures/teacher_girl2.png', './imgs/avatars/avatar_teachergirl_2.png')">
+			</div>
+
+			
+			
+			<button id="button_selectroom"><b>Enter Room</b></button>
+			<button id="button_register"><b>Register</b></button>
+
+		</div>
+
+
+		
+		<!-- <div id="choose_avatar" style="display: none; cursor: pointer;">
+			
+		</div>
+
+		<button id="button_avatar"><b>Avatars</b></button>-->
+		
+
+
+	
+	</div>
+
+	<div id="divSpace" style="visibility: hidden">
+		<video id="me"></video>
+		<audio id="screen"></audio>
+		<audio id="micro"></audio>
+		
+		<canvas id="classCanvas" style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; height: 100%;"></canvas>
+		<canvas id="paperCanvas" style="position: absolute; background-color: antiquewhite; z-index: 0; width: 40em; height: 50em; margin-left: 15%; margin-right: 15%; aspect-ratio: 8/6; top: 10%;"></canvas>
+		
+		<div id="input_container"> 
+			<input id="input_chat" placeholder="Enter Message..."/>
+			<button id="button_send"><img src="./imgs/send.png"/></button> 
+		</div>
+
+		<div id="chat_container">
+			<button id="button_room"><b style="text-align:center;">Chat Classroom</b></button>
+
+			<div class="initial_message">
+				<div class="msg">
+					<span class="username"></span>
+					<span class="text"></span>
+				</div>
+			</div>  
+			
+		</div> 
+
+		<div id="hud_buttons">
+
+			<button id="question_button"><img style="width:50px; cursor: pointer;" src="./imgs/question.png"/></button>
+			<button id="answers_button"><img style="width:50px; cursor: pointer;" src="./imgs/answers.png"/></button>
+			<button id="sharing_button"><img style="width:50px; cursor: pointer;" src="./imgs/screen.png"/></button>
+
+			<button id="hide_button"><img style="width:50px; cursor: pointer;" src="./imgs/hide-tag.png"/></button>
+			<button id="chat_button"><img style="width:50px; cursor: pointer;" src="./imgs/chat.png"/></button>
+			<button id="micro_button"><img style="width:50px; cursor: pointer;" src="./imgs/micro.png"/></button>
+
+
+
+		</div>
+		
+
+	</div>
+
+
+
+	
+</body>
+<!--<script>init();</script> -->
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="codeChat.js"></script>
+<script type="text/javascript" src="codeSpace.js"></script>
+<script type="text/javascript" src="codeLogin.js"></script>
+<script type="text/javascript" src="handlerSpace.js"></script>
+
+</html>
